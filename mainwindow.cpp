@@ -9,6 +9,8 @@
 #include <QFileInfo>
 #include <QSize>
 #include <QMenu>
+#include <QDesktopServices> // 添加桌面服务头文件
+#include <QUrl> // 添加URL头文件
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -32,11 +34,27 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 设置右键菜单
     setupContextMenu();
+
+    // 连接关于菜单项
+    connect(ui->action_8, &QAction::triggered, this, &MainWindow::openAuthorPage);
+    connect(ui->action_9, &QAction::triggered, this, &MainWindow::openGitHubRepo);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+// 打开作者页面
+void MainWindow::openAuthorPage()
+{
+    QDesktopServices::openUrl(QUrl("https://gnitimg.ac.cn"));
+}
+
+// 打开GitHub仓库
+void MainWindow::openGitHubRepo()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/gnitimg/xiaobaiNoteBook"));
 }
 
 // 右键菜单

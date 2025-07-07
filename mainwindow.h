@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QAction>
+#include <QDesktopServices> // 添加桌面服务头文件
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,6 +26,10 @@ private slots:
     void on_action_5_triggered();   // 退出
     void on_action_6_triggered();   // 回退
     void on_action_7_triggered();   // 取消回退
+
+    // 关于菜单动作
+    void openAuthorPage();          // 打开作者页面
+    void openGitHubRepo();          // 打开GitHub仓库
 
     // 右键菜单动作
     void cutText();
